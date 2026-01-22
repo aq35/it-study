@@ -837,7 +837,7 @@ def lambda_handler(event, context):
     start_date = end_date - timedelta(days=7)
     
     # Get cost by service
-    response = ce.get_cost-and_usage(
+    response = ce.get_cost_and_usage(
         TimePeriod={
             'Start': str(start_date),
             'End': str(end_date)
