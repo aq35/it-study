@@ -122,13 +122,26 @@ Trainees are encouraged to take an **active and hands-on approach**:
 - **Think Critically**: Analyze requirements before implementing solutions
 - **Document Your Journey**: Keep notes on what you learn and challenges you overcome
 
+## Learning Resources
+
+In addition to the phase-based training, we provide **supplementary learning materials** to enhance your understanding:
+
+- **[AWS Real-World Use Cases](./learning-resources/aws-use-cases.md)**: Comprehensive scenarios demonstrating practical applications of AWS services, including:
+  - Document Conversion and Storage (Lambda, S3, serverless architectures)
+  - Scalable Web Application Deployment (Auto Scaling, Load Balancing, high availability)
+  - Data Analysis and Reporting (CloudWatch, data warehousing, business intelligence)
+  - Disaster Recovery and Failover (multi-region setups, RDS replication, S3 CRR)
+
+Each use case includes detailed learning objectives, success metrics, AWS constraints, and hands-on action plans.
+
 ## Getting Started
 
 1. **Clone this repository** to your local development environment
 2. **Begin with Phase 1** to build your foundational skills
 3. **Progress sequentially** through each phase, ensuring you understand concepts before moving forward
 4. **Practice regularly** with hands-on exercises and projects
-5. **Ask questions** and collaborate with fellow trainees
+5. **Explore real-world use cases** in the [learning-resources](./learning-resources/) directory
+6. **Ask questions** and collaborate with fellow trainees
 
 ---
 
