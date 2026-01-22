@@ -408,7 +408,12 @@ BASTION_SG_ID=$(aws ec2 create-security-group \
   --output text)
 
 # Allow SSH from your IP only (replace with your IP)
+# Note: This fetches your current IP automatically. Alternatively, manually set YOUR_IP="x.x.x.x/32"
 YOUR_IP="$(curl -s https://checkip.amazonaws.com)/32"
+if [ -z "$YOUR_IP" ] || [ "$YOUR_IP" = "/32" ]; then
+  echo "Warning: Could not auto-detect IP. Please set YOUR_IP manually."
+  YOUR_IP="0.0.0.0/32"  # Placeholder - MUST be replaced with actual IP
+fi
 aws ec2 authorize-security-group-ingress \
   --group-id ${BASTION_SG_ID} \
   --protocol tcp \

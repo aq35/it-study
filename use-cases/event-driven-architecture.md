@@ -405,6 +405,9 @@ def lambda_handler(event, context):
             print(f"Error processing record: {str(e)}")
             failed += 1
             # Re-raise to trigger retry mechanism
+            # Note: In production, implement granular error handling to distinguish
+            # between retryable errors (temporary issues) and non-retryable errors
+            # (data format issues) to prevent infinite retry loops
             raise
     
     result = {
@@ -500,7 +503,8 @@ TOPIC_ARN=$(aws sns create-topic \
   --query 'TopicArn' \
   --output text)
 
-# Subscribe your email to the topic
+# Subscribe your email to the topic (replace with your actual email)
+# REPLACE 'your-email@example.com' with your actual email address
 aws sns subscribe \
   --topic-arn ${TOPIC_ARN} \
   --protocol email \

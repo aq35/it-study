@@ -556,9 +556,10 @@ aws support describe-trusted-advisor-checks \
   --output table
 
 # Get specific check results (example: Underutilized EC2 instances)
+# Note: Check IDs may vary by account. Use describe-trusted-advisor-checks to find current IDs
 # First, refresh the check
 aws support refresh-trusted-advisor-check \
-  --check-id Qch7DwouX1 # ID for "Low Utilization Amazon EC2 Instances"
+  --check-id Qch7DwouX1 # Example ID for "Low Utilization Amazon EC2 Instances"
 
 # Wait a few seconds for refresh
 sleep 10
@@ -741,10 +742,13 @@ OLD_SNAPSHOTS=$(aws ec2 describe-snapshots \
 echo "Snapshots older than 90 days:"
 echo "${OLD_SNAPSHOTS}"
 
-# Uncomment to delete (use with caution!)
+# Uncomment to delete (use with EXTREME caution!)
+# WARNING: Verify snapshots are not needed before deletion
+# Check if snapshots are associated with critical resources
 # while read -r line; do
 #   SNAPSHOT_ID=$(echo $line | awk '{print $1}')
 #   echo "Deleting snapshot: ${SNAPSHOT_ID}"
+#   # Add verification: aws ec2 describe-volumes to check usage
 #   aws ec2 delete-snapshot --snapshot-id ${SNAPSHOT_ID}
 # done <<< "${OLD_SNAPSHOTS}"
 EOF
